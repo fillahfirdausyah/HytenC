@@ -2,12 +2,9 @@
     <string name="app_name">Hyper-C</string>
     <string name="appDetail">Solution for controlling and monitoring Hypertension</string>
     <string name="welcomeTo">Welcome To</string>
-    <string name="loginAs">Login As</string>
-    <string name="loginAsDoctor">Login as doctor</string>
     <string name="login">Login</string>
     <string name="loginAsPatient">Login as patient</string>
     <string name="appDescription">Hyper-C is an application for monitoring or controlling hypertension patients which is handled directly by a doctor</string>
-    <string name="developBy">Develop by F4Tech Team</string>
     <string name="welcomeBack">Welcome Back</string>
     <string name="email">Email</string>
     <string name="fullName">Full Name</string>
