@@ -10,5 +10,6 @@
 
     <!--  Costom Color  -->
     <color name="primary">#006CF6</color>
-    <color name="secondary">#5BA3FF</color>
+    <color name="secondary">#432C81</color>
+    <color name="grey_light">#9AA0B8</color>
 </resources>
