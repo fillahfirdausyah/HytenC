@@ -6,13 +6,98 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/shape_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivIconApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/icon_blood"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.337"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.473" />
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/secondary"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivIconApp"
+        app:layout_constraintStart_toEndOf="@+id/ivIconApp"
+        app:layout_constraintTop_toTopOf="@+id/ivIconApp" />
+
+    <TextView
+        android:id="@+id/tvAppSlogan"
+        style="@style/TextAppSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/appDetail"
+        app:layout_constraintEnd_toEndOf="@+id/tvAppName"
+        app:layout_constraintStart_toStartOf="@+id/ivIconApp"
+        app:layout_constraintTop_toBottomOf="@+id/ivIconApp" />
+
+    <TextView
+        android:id="@+id/tvWelcomeTo"
+        style="@style/TextWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/welcomeTo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/tvWelcomeAppName"
+        style="@style/TextAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/app_name"
+        app:layout_constraintEnd_toEndOf="@+id/tvWelcomeTo"
+        app:layout_constraintStart_toStartOf="@+id/tvWelcomeTo"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcomeTo" />
+
+    <TextView
+        android:id="@+id/tvAppDescription"
+        style="@style/TextAppDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/appDescription"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcomeAppName" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        style="@style/CustomButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/shape_button"
+        android:text="@string/loginAsPatient"
+        app:layout_constraintEnd_toEndOf="@+id/tvAppDescription"
+        app:layout_constraintStart_toStartOf="@+id/tvAppDescription"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppDescription" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

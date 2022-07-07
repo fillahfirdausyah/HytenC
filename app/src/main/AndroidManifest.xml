@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fillahdev.hyper_c">
+    package="com.fillahdev.hyper_c_patient">
 
     <application
         android:allowBackup="true"
@@ -14,8 +14,19 @@
         android:theme="@style/Theme.HyperC"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.home.BottomNavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_nav" />
+        <activity
+            android:name=".ui.auth.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.fillahdev.hyper_c_patient.MainActivity"
+            android:exported="true"
+            android:theme="@style/noActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
