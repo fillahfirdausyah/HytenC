@@ -1,4 +1,4 @@
-package com.fillahdev.hyper_c
+package com.fillahdev.hyper_c_patient
 
 import org.junit.Test
 
