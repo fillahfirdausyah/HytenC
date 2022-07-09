@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/btnLoginAction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -101,8 +101,8 @@
         android:text="@string/dontHaveAccount"
         android:textColor="@color/secondary"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/appCompatButton"
-        app:layout_constraintStart_toStartOf="@+id/appCompatButton"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLoginAction"
+        app:layout_constraintStart_toStartOf="@+id/btnLoginAction"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginAction" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
