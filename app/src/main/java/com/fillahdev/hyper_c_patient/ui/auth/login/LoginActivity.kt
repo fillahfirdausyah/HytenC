@@ -1,5 +1,6 @@
 package com.fillahdev.hyper_c_patient.ui.auth.login
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -8,13 +9,24 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.fillahdev.hyper_c_patient.R
+import com.fillahdev.hyper_c_patient.databinding.ActivityLoginBinding
+import com.fillahdev.hyper_c_patient.ui.home.BottomNavActivity
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupActionBar()
+
+        binding.btnLoginAction.setOnClickListener {
+            val intentToHome = Intent(this@LoginActivity, BottomNavActivity::class.java)
+            startActivity(intentToHome)
+        }
     }
 
     private fun setupActionBar() {

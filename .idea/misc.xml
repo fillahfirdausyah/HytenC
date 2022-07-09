@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/avatar_placeholder_female.xml" value="0.15" />
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/ic_notification_solid.xml" value="0.15" />
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/shape_banner.xml" value="0.15" />
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/shape_button.xml" value="0.15" />
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/shape_button_2.xml" value="0.15" />
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/shape_edit_text.xml" value="0.15" />
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/drawable/shape_main.xml" value="0.15" />
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/layout/activity_bottom_nav.xml" value="0.22" />
@@ -12,6 +16,9 @@
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/layout/activity_pmo_login.xml" value="0.22" />
         <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/layout/activity_register.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/layout/fragment_notifications.xml" value="0.2" />
+        <entry key="..\:/Users/filla/Documents/Amikom/HyperC/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>
     </option>
   </component>

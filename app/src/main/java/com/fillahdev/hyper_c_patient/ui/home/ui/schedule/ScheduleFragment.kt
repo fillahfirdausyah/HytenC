@@ -1,4 +1,4 @@
-package com.fillahdev.hyper_c_patient.ui.home.ui.dashboard
+package com.fillahdev.hyper_c_patient.ui.home.ui.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.fillahdev.hyper_c_patient.databinding.FragmentDashboardBinding
+import com.fillahdev.hyper_c_patient.databinding.FragmentScheduleBinding
 
 
-class DashboardFragment : Fragment() {
+class ScheduleFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,14 +20,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val scheduleViewModel =
+            ViewModelProvider(this).get(ScheduleViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentScheduleBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        scheduleViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

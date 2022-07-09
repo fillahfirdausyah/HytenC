@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.fillahdev.hyper_c_patient.databinding.ActivityMainBinding
+import com.fillahdev.hyper_c_patient.ui.auth.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupActionBar()
+
+        binding.btnLogin.setOnClickListener {
+            val intentToLogin = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intentToLogin)
+        }
     }
 
     private fun setupActionBar() {
