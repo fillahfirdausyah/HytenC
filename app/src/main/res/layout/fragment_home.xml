@@ -7,13 +7,13 @@
     tools:context=".ui.home.ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:id="@+id/bannerNotifications"
+        android:layout_width="360dp"
+        android:layout_height="198dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/shape_banner"
+        android:background="@drawable/shape_banner_state_safe"
         android:paddingHorizontal="20dp"
         android:paddingVertical="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +22,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tvHelloUsername">
 
         <TextView
-            android:id="@+id/tvTextNotTaketMedicin"
+            android:id="@+id/tvActionState"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/text_havenot_take_medicin"
-            android:textColor="@color/white"
+            android:text="@string/text_have_take_medicin"
+            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
@@ -35,15 +35,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTellSupervisor"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:background="@drawable/shape_button"
             android:text="@string/text_tell_doctor"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvTextNotTaketMedicin"
-            app:layout_constraintTop_toBottomOf="@+id/tvTextNotTaketMedicin"
+            app:layout_constraintStart_toStartOf="@+id/tvActionState"
+            app:layout_constraintTop_toBottomOf="@+id/tvActionState"
             app:layout_constraintVertical_bias="0.93" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -80,13 +82,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTextHello" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivBannerState"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/pose_5"
+        android:src="@drawable/pose_7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toTopOf="@+id/bannerNotifications" />
 
     <TextView
         android:id="@+id/tvTextDailyReview"
@@ -97,7 +99,30 @@
         android:text="@string/text_daily_review"
         android:textColor="@color/black"
         android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerNotifications" />
+
+    <TextView
+        android:id="@+id/tvSeeAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="See All"
+        app:layout_constraintEnd_toEndOf="@+id/bannerNotifications"
+        app:layout_constraintTop_toBottomOf="@+id/bannerNotifications" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListTips"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTextDailyReview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

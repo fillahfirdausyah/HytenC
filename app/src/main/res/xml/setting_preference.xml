@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Notifikasi">
+        <SwitchPreference
+            android:key="@string/activate_notification"
+            android:summary="@string/notity_when_the_time"
+            android:title="@string/activate_notification" />
+    </PreferenceCategory>
+</PreferenceScreen>

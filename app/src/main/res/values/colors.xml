@@ -6,9 +6,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--  Costom Color  -->
-    <color name="primary">#006CF6</color>
     <color name="secondary">#432C81</color>
+    <color name="secondary_light">#6c5fd4</color>
     <color name="grey_light">#9AA0B8</color>
-    <color name="green">#84ffb1</color>
     <color name="red">#ff8484</color>
+    <color name="green">#84ffa9</color>
 </resources>

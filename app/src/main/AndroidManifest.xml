@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fillahdev.hyper_c_patient">
+    package="com.fillahdev.hytenc_patient">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
         android:allowBackup="true"
@@ -13,18 +18,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HyperC"
         tools:targetApi="31">
+
+        <receiver
+            android:name=".service.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
-            android:name=".ui.home.BottomNavActivity"
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.fillahdev.hytenc_patient.ui.home.BottomNavActivity"
             android:exported="false"
             android:label="@string/title_activity_bottom_nav" />
         <activity
-            android:name=".ui.auth.register.RegisterActivity"
+            android:name="com.fillahdev.hytenc_patient.ui.auth.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.auth.login.LoginActivity"
+            android:name="com.fillahdev.hytenc_patient.ui.auth.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.fillahdev.hyper_c_patient.MainActivity"
+            android:name="com.fillahdev.hytenc_patient.MainActivity"
             android:exported="true"
             android:theme="@style/noActionBar">
             <intent-filter>

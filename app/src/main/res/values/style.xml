@@ -27,5 +27,11 @@
         <item name="background">@drawable/shape_button</item>
     </style>
 
+    <style name="TextTitlePage">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="noActionBar" parent="Theme.AppCompat.Light.NoActionBar" />
 </resources>

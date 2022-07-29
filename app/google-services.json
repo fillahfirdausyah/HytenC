@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "938997836768",
+    "firebase_url": "https://hyper-c-ce687-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hyper-c-ce687",
+    "storage_bucket": "hyper-c-ce687.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938997836768:android:9f78004b444642c3965985",
+        "android_client_info": {
+          "package_name": "com.aprilla.firebasecloudmessagingstarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCI5m-VYu7F3VuWcbb4Btv8G5AhWRr8TE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938997836768:android:2192805cb7bc8d9f965985",
+        "android_client_info": {
+          "package_name": "com.fillahdev.hypercdoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCI5m-VYu7F3VuWcbb4Btv8G5AhWRr8TE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938997836768:android:a3adc6e242cf6456965985",
+        "android_client_info": {
+          "package_name": "com.fillahdev.hytenc_patient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCI5m-VYu7F3VuWcbb4Btv8G5AhWRr8TE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938997836768:android:680841854bab280d965985",
+        "android_client_info": {
+          "package_name": "com.fillahdev.hytenc_supervisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCI5m-VYu7F3VuWcbb4Btv8G5AhWRr8TE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938997836768-98va6u9g96dv7f03chbp12btf2tseqt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

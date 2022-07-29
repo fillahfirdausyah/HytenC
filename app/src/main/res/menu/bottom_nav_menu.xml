@@ -13,8 +13,8 @@
 
     <item
         android:id="@+id/navigation_tips"
-        android:icon="@drawable/ic_fire_solid"
-        android:title="@string/title_tips" />
+        android:icon="@drawable/ic_clipboard"
+        android:title="@string/title_medical_record" />
 
     <item
         android:id="@+id/navigation_settings"
