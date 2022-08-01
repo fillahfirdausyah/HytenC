@@ -1,19 +1,115 @@
 package com.fillahdev.hytenc_patient.ui.home.ui.home
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.fillahdev.hytenc_patient.data.MedicineSchedule
 import com.fillahdev.hytenc_patient.data.Tips
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeViewModel : ViewModel() {
 
     private val firestore = Firebase.firestore
 
-
     val listTips: MutableLiveData<List<Tips>> = MutableLiveData()
+    val isTaken: MutableLiveData<String> = MutableLiveData()
+
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+
+    @SuppressLint("SimpleDateFormat")
+    fun getCurrentShcedule(patientName: String) {
+        _isLoading.value = true
+        val sdf = SimpleDateFormat("HH:mm")
+        val currentTime = sdf.parse(sdf.format(Date()))
+        firestore.collection("Patient")
+            .document(patientName)
+            .collection("Medicine Schedule")
+            .addSnapshotListener { snapshot, error ->
+                _isLoading.value = false
+                if (!snapshot?.isEmpty!!) {
+                    for (document in snapshot) {
+                        val data = document.toObject(MedicineSchedule::class.java)
+                        val medicineSchedule = sdf.parse(data.schedule.toString())
+                        if (currentTime.after(medicineSchedule)
+                            &&
+                            document.getString("isTaken") == "false"
+                        ) {
+                            isTaken.value = document.getString("isTaken").toString()
+                            Log.d("satunich", data.toString())
+                        } else if (currentTime.after(medicineSchedule)) {
+                            isTaken.value = document.getString("isTaken").toString()
+                            Log.d("duanich", data.toString())
+                        }
+                    }
+                } else {
+                    isTaken.value = "null"
+                }
+            }
+    }
+
+
+    fun tellSupervisor(patientName: String) {
+        val sdf = SimpleDateFormat("HH:mm")
+        val currentTime = sdf.parse(sdf.format(Date()))
+        firestore.collection("Patient")
+            .document(patientName)
+            .collection("Medicine Schedule")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                if (!snapshot.isEmpty) {
+                    for (document in snapshot) {
+                        val data = document.toObject(MedicineSchedule::class.java)
+                        val medicineSchedule = sdf.parse(data.schedule.toString())
+                        if (document.data.get("isTaken").toString() == "false"
+                            &&
+                            currentTime.after(
+                                medicineSchedule
+                            )
+                        ) {
+                            firestore.collection("Patient")
+                                .document(patientName)
+                                .collection("Medicine Schedule")
+                                .document(data.medicineName.toString())
+                                .update("isTaken", "true")
+                        }
+                    }
+                }
+            }
+
+        firestore.collection("NotifyToSupervisor")
+            .document(patientName)
+            .collection("Has Taken")
+            .document(patientName)
+            .get().addOnSuccessListener { snapshot ->
+                if (snapshot.exists()) {
+                    val hasTaken = snapshot.data?.get("hasTaken")
+                    if (hasTaken.toString() == "false") {
+                        firestore
+                            .collection("NotifyToSupervisor")
+                            .document(patientName)
+                            .collection("Has Taken")
+                            .document(patientName)
+                            .update("hasTaken", "true")
+                    } else {
+                        firestore
+                            .collection("NotifyToSupervisor")
+                            .document(patientName)
+                            .collection("Has Taken")
+                            .document(patientName)
+                            .update("hasTaken", "false")
+                    }
+                }
+            }
+    }
 
 
     fun getAllTips() {
@@ -29,5 +125,4 @@ class HomeViewModel : ViewModel() {
 
         }
     }
-
 }

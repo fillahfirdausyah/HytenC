@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bannerNotifications"
-        android:layout_width="360dp"
+        android:layout_width="0dp"
         android:layout_height="198dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
@@ -47,6 +47,16 @@
             app:layout_constraintStart_toStartOf="@+id/tvActionState"
             app:layout_constraintTop_toBottomOf="@+id/tvActionState"
             app:layout_constraintVertical_bias="0.93" />
+
+        <ProgressBar
+            android:id="@+id/pbInformation"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

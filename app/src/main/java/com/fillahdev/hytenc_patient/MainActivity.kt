@@ -1,6 +1,5 @@
 package com.fillahdev.hytenc_patient
 
-import android.content.BroadcastReceiver
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val intentToLogin = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intentToLogin)
+            finish()
         }
     }
 

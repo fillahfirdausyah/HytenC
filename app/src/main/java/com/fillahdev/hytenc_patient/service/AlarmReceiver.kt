@@ -13,15 +13,22 @@ import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
 import com.fillahdev.hytenc_patient.R
-import com.fillahdev.hytenc_patient.ui.home.ui.home.HomeFragment
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.*
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 
 class AlarmReceiver : BroadcastReceiver() {
 
+    private val firestore = Firebase.firestore
+    private val patientName = Firebase.auth.currentUser?.displayName
+
     override fun onReceive(context: Context, intent: Intent) {
+
         val medicineName = intent.getStringExtra(EXTRA_MEDICINE_NAME)
         val notifId = intent.getIntExtra(EXTRA_NOTIF_ID, 0)
 
@@ -29,7 +36,42 @@ class AlarmReceiver : BroadcastReceiver() {
 
         if (medicineName != null) {
             showAlarmNotification(context, notifId)
+            Executors.newSingleThreadScheduledExecutor().schedule({
+                notifySupervisor()
+                updateMedicineData(medicineName)
+            }, 30, TimeUnit.SECONDS)
         }
+    }
+
+    private fun updateMedicineData(medicineName: String) {
+        firestore.collection("Patient")
+            .document(patientName.toString())
+            .collection("Medicine Schedule")
+            .document(medicineName).update("isTaken", "false")
+    }
+
+    private fun notifySupervisor() {
+        firestore.collection("NotifyToSupervisor")
+            .document(patientName.toString())
+            .collection("Not Taken")
+            .document(patientName.toString())
+            .get().addOnSuccessListener { snapshot ->
+                if (snapshot.exists()) {
+                    if (snapshot.getString("notTaken").toString() == "true") {
+                        firestore.collection("NotifyToSupervisor")
+                            .document(patientName.toString())
+                            .collection("Not Taken")
+                            .document(patientName.toString())
+                            .update("notTaken", "false")
+                    } else {
+                        firestore.collection("NotifyToSupervisor")
+                            .document(patientName.toString())
+                            .collection("Not Taken")
+                            .document(patientName.toString())
+                            .update("notTaken", "true")
+                    }
+                }
+            }
     }
 
     @SuppressLint("InlinedApi")
@@ -58,6 +100,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 intent,
                 PendingIntent.FLAG_MUTABLE
             )
+
         alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,

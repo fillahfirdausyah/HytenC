@@ -1,9 +1,8 @@
 package com.fillahdev.hytenc_patient.ui.settings
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.fillahdev.hytenc_patient.R
-import com.fillahdev.hytenc_patient.ui.home.ui.settings.SettingsFragment
 import com.fillahdev.hytenc_patient.ui.home.ui.settings.SettingsPreference
 
 class SettingsActivity : AppCompatActivity() {

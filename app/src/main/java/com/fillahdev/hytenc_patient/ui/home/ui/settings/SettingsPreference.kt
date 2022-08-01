@@ -1,8 +1,6 @@
 package com.fillahdev.hytenc_patient.ui.home.ui.settings
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
@@ -12,7 +10,6 @@ import com.fillahdev.hytenc_patient.service.AlarmReceiver
 import com.fillahdev.hytenc_patient.ui.home.ui.schedule.ScheduleViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class SettingsPreference : PreferenceFragmentCompat() {

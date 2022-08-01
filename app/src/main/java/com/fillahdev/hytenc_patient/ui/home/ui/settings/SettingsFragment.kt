@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.fillahdev.hytenc_patient.R
 import com.fillahdev.hytenc_patient.databinding.FragmentSettingsBinding
 import com.fillahdev.hytenc_patient.service.AlarmReceiver
 import com.fillahdev.hytenc_patient.ui.settings.SettingsActivity

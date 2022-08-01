@@ -1,11 +1,9 @@
 package com.fillahdev.hytenc_patient.ui.home.ui.schedule
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fillahdev.hytenc_patient.data.MedicineSchedule
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class ScheduleViewModel : ViewModel() {

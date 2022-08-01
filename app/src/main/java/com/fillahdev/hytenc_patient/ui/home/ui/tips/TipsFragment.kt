@@ -1,13 +1,12 @@
 package com.fillahdev.hytenc_patient.ui.home.ui.tips
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fillahdev.hytenc_patient.R
 import com.fillahdev.hytenc_patient.adapter.ListMedicalRecordAdapter
 import com.fillahdev.hytenc_patient.data.MedicalRecord
 import com.fillahdev.hytenc_patient.databinding.FragmentTipsBinding
