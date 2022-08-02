@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fillahdev.hytenc_patient.data.MedicineSchedule
 import com.fillahdev.hytenc_patient.data.Tips
+import com.fillahdev.hytenc_patient.util.FirestoreDB
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -39,14 +40,24 @@ class HomeViewModel : ViewModel() {
                     for (document in snapshot) {
                         val data = document.toObject(MedicineSchedule::class.java)
                         val medicineSchedule = sdf.parse(data.schedule.toString())
-                        if (currentTime.after(medicineSchedule)
+                        if (currentTime.toString() == medicineSchedule.toString()
                             &&
-                            document.getString("isTaken") == "false"
+                            data.taken.toString() == "false"
                         ) {
-                            isTaken.value = document.getString("isTaken").toString()
+                            isTaken.value = data.taken.toString()
+                        } else if (currentTime.after(medicineSchedule)
+                            &&
+                            data.taken.toString() == "false"
+                        ) {
+                            isTaken.value = data.taken.toString()
                             Log.d("satunich", data.toString())
+                        } else if (currentTime.toString() == medicineSchedule.toString()
+                            &&
+                            data.taken.toString() == "true"
+                        ) {
+                            isTaken.value = data.taken.toString()
                         } else if (currentTime.after(medicineSchedule)) {
-                            isTaken.value = document.getString("isTaken").toString()
+                            isTaken.value = data.taken.toString()
                             Log.d("duanich", data.toString())
                         }
                     }
@@ -69,17 +80,24 @@ class HomeViewModel : ViewModel() {
                     for (document in snapshot) {
                         val data = document.toObject(MedicineSchedule::class.java)
                         val medicineSchedule = sdf.parse(data.schedule.toString())
-                        if (document.data.get("isTaken").toString() == "false"
+                        if (currentTime.toString() == medicineSchedule.toString()
                             &&
-                            currentTime.after(
-                                medicineSchedule
-                            )
+                            data.taken.toString() == "false"
                         ) {
                             firestore.collection("Patient")
                                 .document(patientName)
                                 .collection("Medicine Schedule")
                                 .document(data.medicineName.toString())
-                                .update("isTaken", "true")
+                                .update("taken", "true")
+                        } else if (data.taken.toString() == "false"
+                            &&
+                            currentTime.after(medicineSchedule)
+                        ) {
+                            firestore.collection("Patient")
+                                .document(patientName)
+                                .collection("Medicine Schedule")
+                                .document(data.medicineName.toString())
+                                .update("taken", "true")
                         }
                     }
                 }

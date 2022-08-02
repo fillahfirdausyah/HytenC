@@ -5,13 +5,11 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.firestoreSettings
 import com.google.firebase.ktx.Firebase
 
-fun FirestoreInstance(): FirebaseFirestore {
-    val firestore = Firebase.firestore
+fun FirestoreDB(): FirebaseFirestore {
+    val db = Firebase.firestore
     val settings = firestoreSettings {
-        isPersistenceEnabled = true
-        cacheSizeBytes = 20000000
-        build()
+        isPersistenceEnabled = false
     }
-    firestore.firestoreSettings = settings
-    return firestore
+    db.firestoreSettings = settings
+    return db
 }

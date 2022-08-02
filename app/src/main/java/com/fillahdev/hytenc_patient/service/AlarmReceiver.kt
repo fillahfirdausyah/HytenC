@@ -36,9 +36,9 @@ class AlarmReceiver : BroadcastReceiver() {
 
         if (medicineName != null) {
             showAlarmNotification(context, notifId)
+            updateMedicineData(medicineName)
             Executors.newSingleThreadScheduledExecutor().schedule({
-                notifySupervisor()
-                updateMedicineData(medicineName)
+                notifySupervisor(patientName.toString(), medicineName)
             }, 30, TimeUnit.SECONDS)
         }
     }
@@ -47,28 +47,38 @@ class AlarmReceiver : BroadcastReceiver() {
         firestore.collection("Patient")
             .document(patientName.toString())
             .collection("Medicine Schedule")
-            .document(medicineName).update("isTaken", "false")
+            .document(medicineName).update("taken", "false")
     }
 
-    private fun notifySupervisor() {
-        firestore.collection("NotifyToSupervisor")
-            .document(patientName.toString())
-            .collection("Not Taken")
-            .document(patientName.toString())
-            .get().addOnSuccessListener { snapshot ->
+    private fun notifySupervisor(patientName: String, medicineName: String) {
+        firestore.collection("Patient")
+            .document(patientName)
+            .collection("Medicine Schedule")
+            .document(medicineName).get().addOnSuccessListener { snapshot ->
                 if (snapshot.exists()) {
-                    if (snapshot.getString("notTaken").toString() == "true") {
+                    val data = snapshot.data?.get("taken")
+                    if (data.toString() == "false") {
                         firestore.collection("NotifyToSupervisor")
-                            .document(patientName.toString())
+                            .document(patientName)
                             .collection("Not Taken")
-                            .document(patientName.toString())
-                            .update("notTaken", "false")
-                    } else {
-                        firestore.collection("NotifyToSupervisor")
-                            .document(patientName.toString())
-                            .collection("Not Taken")
-                            .document(patientName.toString())
-                            .update("notTaken", "true")
+                            .document(patientName)
+                            .get().addOnSuccessListener { snapshot ->
+                                if (snapshot.exists()) {
+                                    if (snapshot.getString("notTaken").toString() == "true") {
+                                        firestore.collection("NotifyToSupervisor")
+                                            .document(patientName)
+                                            .collection("Not Taken")
+                                            .document(patientName)
+                                            .update("notTaken", "false")
+                                    } else {
+                                        firestore.collection("NotifyToSupervisor")
+                                            .document(patientName)
+                                            .collection("Not Taken")
+                                            .document(patientName.toString())
+                                            .update("notTaken", "true")
+                                    }
+                                }
+                            }
                     }
                 }
             }
