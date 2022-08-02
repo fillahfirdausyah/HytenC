@@ -7,8 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.fillahdev.hytenc_patient.data.MedicineSchedule
 import com.fillahdev.hytenc_patient.data.Tips
-import com.fillahdev.hytenc_patient.util.FirestoreDB
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat

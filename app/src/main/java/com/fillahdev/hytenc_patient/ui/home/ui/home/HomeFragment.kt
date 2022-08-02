@@ -16,10 +16,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fillahdev.hytenc_patient.R
 import com.fillahdev.hytenc_patient.adapter.ListTipsAdapter
-import com.fillahdev.hytenc_patient.data.MedicineSchedule
 import com.fillahdev.hytenc_patient.data.Tips
 import com.fillahdev.hytenc_patient.databinding.FragmentHomeBinding
-import com.fillahdev.hytenc_patient.util.FirestoreDB
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -27,8 +25,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class HomeFragment : Fragment() {
